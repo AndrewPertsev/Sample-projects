@@ -4,7 +4,7 @@ Application provides an opportunity to book apartment if you are guest, and eith
 
 ## Feature
 Available functionality depend on the user's role (guest, manager). Implemented layered architecture with design patterns are: Singelton, Command, Proxy, Factory, Builder.
-Used technologies : Maven, Tomcat, JSP, JSTL, MySQL, JDBC, jBCrypt, JUnit, Mockito.
+Used technologies : Java, MySQL, JDBC, Maven, Tomcat, JSP, JSTL,  jBCrypt, JUnit, Mockito.
 
 ## Guest:
 - Placing requestUser with ability of choosing check-in date, check-out date, quantity persons, apartment category, transfer and menu.
@@ -35,6 +35,7 @@ Same features as guest with ability to:
 - Pagination on each table.
 - Sorting on each table.
 - Search on each table.
+- Send confirmation email.
 
 
 
