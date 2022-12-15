@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th='http://www.thymeleaf.org'>
+<head>
+    <meta charset="UTF-8">
+    <title>Users management</title>
+</head>
+<body>
+<h2>USERS</h2>
+
+
+<div>
+    <div>
+        <a th:href="@{/users/new}">ADD</a>
+    </div>
+    <a href="/logout">LOG OUT</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>roleId</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>login</th>
+            <th>email</th>
+            <th>vip</th>
+            <th>nongrata</th>
+            <th>comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="users:${users}">
+            <td><span th:text="${users.userId}"/>
+            <td><span th:text="${users.getRoles()}"/>
+            <td><span th:text="${users.name}"/></td>
+            <td><span th:text="${users.surname}"/></td>
+            <td><span th:text="${users.login}"/></td>
+            <td><span th:text="${users.email}"/></td>
+            <td><span th:text="${users.vip}"/></td>
+            <td><span th:text="${users.nonGrata}"/></td>
+            <td><span th:text="${users.comment}"/></td>
+            <td><a th:href="@{/{id} (id=${users.userId})}">delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

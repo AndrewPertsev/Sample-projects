@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th='http://www.thymeleaf.org'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>REQUESTS</h2>
+<div>
+    <a th:href="@{/requests/new}">ADD</a>
+    <form th:action="@{/logout}" th:method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
+
+</div>
+<table>
+    <thead>
+    <tr>
+        <th> id</th>
+        <th>user.id</th>
+        <th>cat.id</th>
+        <th>quant</th>
+        <th>start</th>
+        <th>date</th>
+        <th>responded</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${requestUsers.empty}">
+        <td colspan="2"> No requests Available</td>
+    </tr>
+    <tr th:each="requestUsers : ${requestUsers}">
+        <td><span th:text="${requestUsers.requestId}"> id </span></td>
+        <td><span th:text="${requestUsers.getUser().getUserId()}"> userIdr </span></td>
+        <td><span th:text="${requestUsers.getCategory().getCategoryId()}"> Cat.id </span></td>
+        <td><span th:text="${requestUsers.quantity}"> quantity </span></td>
+        <td><span th:text="${requestUsers.start}"> start </span></td>
+        <td><span th:text="${requestUsers.dateRequest}"> date </span></td>
+        <td><span th:text="${requestUsers.responded}"> Responded </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

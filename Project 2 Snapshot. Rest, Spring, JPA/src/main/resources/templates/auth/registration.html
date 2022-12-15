@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th='http://www.thymeleaf.org'>
+<meta charset="UTF-8">
+
+
+<head>
+    <title>Title</title>
+
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Registration</h3>
+
+<div align="center">
+    <h1> Registration</h1>
+
+    <form th:action="@{/auth/registration}" th:object="${userDto}" method="POST">
+
+        <label>Name : </label><input type="text" th:field="*{name}" id="name"/>
+
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Username Error</div>
+        <br/>
+        <label>Surname : </label><input type="text" th:field="*{surname}" id="surname"/>
+        <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname Error</div>
+        <br/>
+        <label>Login : </label><input type="text" th:field="*{login}" id="login"/>
+        <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login or password Error</div>
+        <br/>
+        <label>Password : </label><input type="text" th:field="*{password}" id="password"/>
+        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
+        <br/>
+        <label>Email : </label><input type="text" th:field="*{email}" id="email"/>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Password Error</div>
+        <br/>
+        <label>Comment : </label><textarea rows="5" cols="25" th:field="*{comment}" id="comment"/>
+        <div style="color:red" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}">Password Error</div>
+        <br/>
+
+        <!--        <label>Vip : </label>-->
+        <!--        <select th:field="*{vip}"><option th:each="p ${optlist}" th:value="${p}" th:text="${p}"/></select>-->
+        <!--        <input type = "text" th:field="*{isVip}"/><br/>-->
+        <button type="submit" value="registration"> Register</button>
+    </form>
+</div>
+</body>
+</html>
