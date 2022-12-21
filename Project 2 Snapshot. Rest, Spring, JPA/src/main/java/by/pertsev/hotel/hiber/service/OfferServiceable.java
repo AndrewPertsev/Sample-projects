@@ -1,7 +1,7 @@
 package by.pertsev.hotel.hiber.service;
 
-import by.pertsev.hotel.hiber.dto.OfferDto;
 import by.pertsev.hotel.hiber.model.Offer;
+import by.pertsev.hotel.hiber.model.dto.OfferDto;
 
 import java.math.BigDecimal;
 import java.util.List;

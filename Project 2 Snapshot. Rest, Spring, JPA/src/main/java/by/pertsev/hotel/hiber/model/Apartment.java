@@ -14,7 +14,7 @@ import static by.pertsev.hotel.hiber.model.DBColumnLabel.*;
 @Table(name = APARTMENTS)
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"apartmentId"})
+@EqualsAndHashCode(of = {"apartment_id"})
 @Getter
 @Setter
 @Builder

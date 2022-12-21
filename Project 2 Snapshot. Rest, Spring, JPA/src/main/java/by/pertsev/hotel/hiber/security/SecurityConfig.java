@@ -47,9 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .csrf().disable() //for jwt json
                 .authorizeRequests()
-                //       .antMatchers("/**").permitAll()
-                .antMatchers(ADMIN_ENDPOINT_PAGE, "/users", "/requestusers", "/apartments", "/offers", "/timesheets").hasRole("ADMIN")  //not ROLE_ADMIN ->  hasAuthorityROLE_ADMIN @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_BIG_BOSS')")
-                .antMatchers(COMMON_ENDPOINT_LOGIN, COMMON_ENDPOINT_REGISTRATION, COMMON_ENDPOINT_ERROR, "/users", "/requestusers", "/apartments", "/offers", "/timesheets").permitAll()
+                .antMatchers("/**").permitAll()
+                //  .antMatchers(ADMIN_ENDPOINT_PAGE, "/users", "/requestusers", "/apartments", "/offers", "/timesheets").hasRole("ADMIN")  //not ROLE_ADMIN ->  hasAuthorityROLE_ADMIN @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_BIG_BOSS')")
+                //    .antMatchers(COMMON_ENDPOINT_LOGIN, COMMON_ENDPOINT_REGISTRATION, COMMON_ENDPOINT_ERROR, "/users", "/requestusers", "/apartments", "/offers", "/timesheets").permitAll()
                 // //  .anyRequest().hasAnyRole("0", "1", "2")
                 ////                .antMatchers("/**").permitAll();
                 .anyRequest().hasAnyRole("USER", "ADMIN", "GUEST")

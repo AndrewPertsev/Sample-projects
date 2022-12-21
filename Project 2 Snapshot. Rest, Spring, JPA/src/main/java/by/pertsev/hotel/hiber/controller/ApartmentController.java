@@ -1,8 +1,8 @@
 package by.pertsev.hotel.hiber.controller;
 
 import by.pertsev.hotel.hiber.controller.exception.NotFoundException;
-import by.pertsev.hotel.hiber.dto.ApartmentDto;
 import by.pertsev.hotel.hiber.model.Apartment;
+import by.pertsev.hotel.hiber.model.dto.ApartmentDto;
 import by.pertsev.hotel.hiber.service.ApartmentServiceable;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -17,7 +17,6 @@ import static by.pertsev.hotel.hiber.controller.ApartmentController.REST_URL_APA
 @RestController
 @RequestMapping(REST_URL_APARTMENTS)
 @AllArgsConstructor
-
 public class ApartmentController {
     public static final String REST_URL_APARTMENTS = "/apartments";
     private final ApartmentServiceable apartmentServiceable;
@@ -25,7 +24,7 @@ public class ApartmentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Apartment save(@RequestBody ApartmentDto dto) {
+    public Apartment save(@Valid @RequestBody ApartmentDto dto) {
         return apartmentServiceable.save(dto);
     }
 
@@ -50,7 +49,7 @@ public class ApartmentController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Integer id) {
+    public void delete(@PathVariable int id) {
         apartmentServiceable.deleteById(id);
     }
 

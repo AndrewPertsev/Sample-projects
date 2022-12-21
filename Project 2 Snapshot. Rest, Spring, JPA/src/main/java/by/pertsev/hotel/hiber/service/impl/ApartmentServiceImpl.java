@@ -2,10 +2,10 @@ package by.pertsev.hotel.hiber.service.impl;
 
 import by.pertsev.hotel.hiber.dao.ApartmentDao;
 import by.pertsev.hotel.hiber.dao.RequestUserDao;
-import by.pertsev.hotel.hiber.dto.ApartmentDto;
-import by.pertsev.hotel.hiber.dto.util.ConverterDTO;
 import by.pertsev.hotel.hiber.model.Apartment;
 import by.pertsev.hotel.hiber.model.RequestUser;
+import by.pertsev.hotel.hiber.model.converter.ConverterDTO;
+import by.pertsev.hotel.hiber.model.dto.ApartmentDto;
 import by.pertsev.hotel.hiber.service.ApartmentServiceable;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,17 +27,6 @@ public class ApartmentServiceImpl implements ApartmentServiceable {
     private RequestUserDao requestUserDao;
     private final ConverterDTO<ApartmentDto, Apartment> apartmentConverterDto;
 
-    @Override
-    public List<Apartment> findApartmentsAvailableForRequest(int idRequestUser) {
-        RequestUser requestUser = requestUserDao.findById(idRequestUser);
-        LocalDate start = requestUser.getStart();
-        LocalDate end = requestUser.getEnd();
-        int category = requestUser.getCategory().getCategoryId();
-        int quantity = requestUser.getQuantity();
-
-        return apartmentDao.findApartmentsSuitableForRequest(start, end, category, quantity);
-
-    }
 
     @Override
     public Page<Apartment> findAll(Pageable pageable) {
@@ -67,6 +56,18 @@ public class ApartmentServiceImpl implements ApartmentServiceable {
     @Override
     public void deleteById(int id) {
         apartmentDao.deleteById(id);
+
+    }
+
+    @Override
+    public List<Apartment> findApartmentsAvailableForRequest(int idRequestUser) {
+        RequestUser requestUser = requestUserDao.findById(idRequestUser);
+        LocalDate start = requestUser.getStart();
+        LocalDate end = requestUser.getEnd();
+        int category = requestUser.getCategory().getCategoryId();
+        int quantity = requestUser.getQuantity();
+
+        return apartmentDao.findApartmentsSuitableForRequest(start, end, category, quantity);
 
     }
 

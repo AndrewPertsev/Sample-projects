@@ -1,8 +1,8 @@
 package by.pertsev.hotel.hiber.controller;
 
 import by.pertsev.hotel.hiber.controller.exception.NotFoundException;
-import by.pertsev.hotel.hiber.dto.RequestUserDto;
 import by.pertsev.hotel.hiber.model.RequestUser;
+import by.pertsev.hotel.hiber.model.dto.RequestUserDto;
 import by.pertsev.hotel.hiber.service.RequestServiceable;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -26,7 +26,7 @@ public class RequestUserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public RequestUser save(@RequestBody RequestUserDto requestUser) {
+    public RequestUser save(@Valid @RequestBody RequestUserDto requestUser) {
         return requestUserServiceable.save(requestUser);
 
     }

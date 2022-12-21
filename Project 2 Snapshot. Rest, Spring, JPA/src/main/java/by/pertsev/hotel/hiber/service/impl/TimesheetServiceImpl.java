@@ -1,10 +1,10 @@
 package by.pertsev.hotel.hiber.service.impl;
 
 import by.pertsev.hotel.hiber.dao.TimesheetDao;
-import by.pertsev.hotel.hiber.dto.TimesheetDto;
-import by.pertsev.hotel.hiber.dto.util.TimesheetConverterDto;
 import by.pertsev.hotel.hiber.model.RequestUser;
 import by.pertsev.hotel.hiber.model.Timesheet;
+import by.pertsev.hotel.hiber.model.converter.TimesheetConverterDto;
+import by.pertsev.hotel.hiber.model.dto.TimesheetDto;
 import by.pertsev.hotel.hiber.service.TimesheetServiceable;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +22,8 @@ import java.time.LocalDate;
 @Transactional
 
 public class TimesheetServiceImpl implements TimesheetServiceable {
-    private TimesheetConverterDto timesheetConverterDto;
-    private TimesheetDao timesheetDao;
+    private final TimesheetConverterDto timesheetConverterDto;
+    private final TimesheetDao timesheetDao;
     private final boolean IS_RESERVED_APARTMENT_TRUE = true;
 
     @Override
@@ -58,6 +58,7 @@ public class TimesheetServiceImpl implements TimesheetServiceable {
     @Override
     public boolean reserveConfirmedDaysByOffer(int apartmentId, RequestUser requestUser) {
         boolean isDone;
+
         LocalDate bookedFrom = requestUser.getStart();
         LocalDate bookedBefore = requestUser.getEnd();
         long duration = Duration.between(bookedFrom.atStartOfDay(), bookedBefore.atStartOfDay()).toDays();

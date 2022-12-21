@@ -1,7 +1,7 @@
 package by.pertsev.hotel.hiber.service;
 
-import by.pertsev.hotel.hiber.dto.RequestUserDto;
 import by.pertsev.hotel.hiber.model.RequestUser;
+import by.pertsev.hotel.hiber.model.dto.RequestUserDto;
 
 import java.util.List;
 import java.util.Optional;

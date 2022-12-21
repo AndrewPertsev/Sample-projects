@@ -1,6 +1,7 @@
 package by.pertsev.hotel.hiber.dao.impl;
 
 import by.pertsev.hotel.hiber.controller.exception.NotFoundException;
+import by.pertsev.hotel.hiber.controller.exception.UserLoginNotFoundException;
 import by.pertsev.hotel.hiber.dao.UserDao;
 import by.pertsev.hotel.hiber.dao.proxy.ProxyUserRepository;
 import by.pertsev.hotel.hiber.model.User;
@@ -30,7 +31,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Optional<User> findByLogin(String login) {
-        return proxyUserRepository.findByLogin(login);
+        return Optional.ofNullable(proxyUserRepository.findByLogin(login).orElseThrow(UserLoginNotFoundException::new));
     }
 
     @Override

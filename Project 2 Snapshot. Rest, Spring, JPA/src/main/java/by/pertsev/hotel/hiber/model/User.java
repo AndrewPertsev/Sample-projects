@@ -1,6 +1,7 @@
 package by.pertsev.hotel.hiber.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,7 +36,7 @@ public class User extends HotelEntity implements Serializable {
 
     @Column(name = USERS_LOGIN)
     private String login;
-
+    @JsonIgnore///////////////////////////////////////////////////////////////////////
     @Column(name = USERS_PASSWORD)
     private String password;
 

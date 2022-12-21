@@ -1,7 +1,7 @@
 package by.pertsev.hotel.hiber.service;
 
-import by.pertsev.hotel.hiber.dto.ApartmentDto;
 import by.pertsev.hotel.hiber.model.Apartment;
+import by.pertsev.hotel.hiber.model.dto.ApartmentDto;
 
 import java.util.List;
 

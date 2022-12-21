@@ -1,8 +1,8 @@
 package by.pertsev.hotel.hiber.service;
 
-import by.pertsev.hotel.hiber.dto.TimesheetDto;
 import by.pertsev.hotel.hiber.model.RequestUser;
 import by.pertsev.hotel.hiber.model.Timesheet;
+import by.pertsev.hotel.hiber.model.dto.TimesheetDto;
 
 //@Profile("jpa")
 

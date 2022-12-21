@@ -20,7 +20,7 @@ public class HotelhiberApplication implements ApplicationRunner {
 //    private final RequestUserDaoImpl requestUserDaoImpl;
 //    private final UserDaoImpl userDaoImpl;
 //    private final OfferDaoImpl offerDaoImpl;
-//    private final ApartmentDaoImplHiber apartmentDaoImplHiber;
+//    private final ApartmentDaoImpl apartmentDaoImplHiber;
 //    private final TimesheetDaoImpl timesheetDaoImpl;
 //    private final ApartmentServiceable apartmentService;
 //    private final OfferServiceable offerServiceable;

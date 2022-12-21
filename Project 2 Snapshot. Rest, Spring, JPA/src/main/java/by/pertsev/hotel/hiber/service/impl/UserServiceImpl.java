@@ -1,9 +1,9 @@
 package by.pertsev.hotel.hiber.service.impl;
 
 import by.pertsev.hotel.hiber.dao.UserDao;
-import by.pertsev.hotel.hiber.dto.UserDto;
-import by.pertsev.hotel.hiber.dto.util.ConverterDTO;
 import by.pertsev.hotel.hiber.model.User;
+import by.pertsev.hotel.hiber.model.converter.ConverterDTO;
+import by.pertsev.hotel.hiber.model.dto.UserDto;
 import by.pertsev.hotel.hiber.service.UserServiceable;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

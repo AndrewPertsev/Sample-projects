@@ -1,14 +1,16 @@
 package by.pertsev.hotel.hiber.controller;
 
 import by.pertsev.hotel.hiber.controller.exception.NotFoundException;
-import by.pertsev.hotel.hiber.dto.TimesheetDto;
 import by.pertsev.hotel.hiber.model.Timesheet;
+import by.pertsev.hotel.hiber.model.dto.TimesheetDto;
 import by.pertsev.hotel.hiber.service.TimesheetServiceable;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 import static by.pertsev.hotel.hiber.controller.TimesheetController.REST_URL_TIMESHEETS;
 
@@ -21,7 +23,7 @@ public class TimesheetController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Timesheet save(@RequestBody TimesheetDto dto) {
+    public Timesheet save(@Valid @RequestBody TimesheetDto dto) {
         return timesheetServiceable.save(dto);
     }
 
@@ -40,7 +42,7 @@ public class TimesheetController {
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@RequestBody TimesheetDto dto, @PathVariable Integer id) {
+    public void update(@Valid @RequestBody TimesheetDto dto, @PathVariable Integer id) {
         timesheetServiceable.update(dto, id);
     }
 

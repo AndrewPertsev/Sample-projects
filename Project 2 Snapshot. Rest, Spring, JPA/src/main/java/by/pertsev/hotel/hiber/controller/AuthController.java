@@ -1,8 +1,8 @@
 package by.pertsev.hotel.hiber.controller;
 
 
-import by.pertsev.hotel.hiber.dto.UserDto;
 import by.pertsev.hotel.hiber.model.User;
+import by.pertsev.hotel.hiber.model.dto.UserDto;
 import by.pertsev.hotel.hiber.security.AuthenticationUserDto;
 import by.pertsev.hotel.hiber.security.JwtProviderUtil;
 import by.pertsev.hotel.hiber.service.UserServiceable;
@@ -62,7 +62,6 @@ public class AuthController {
     public Map<String, String> performLogin(@RequestBody AuthenticationUserDto authUserDto) {
         UsernamePasswordAuthenticationToken authInputToken = new UsernamePasswordAuthenticationToken(authUserDto.getLogin(),
                 authUserDto.getPassword());
-
 
         try {
             authenticationManager.authenticate(authInputToken);

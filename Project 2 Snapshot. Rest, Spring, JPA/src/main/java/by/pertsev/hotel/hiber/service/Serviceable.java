@@ -1,7 +1,7 @@
 package by.pertsev.hotel.hiber.service;
 
-import by.pertsev.hotel.hiber.dto.HotelDTOEntity;
 import by.pertsev.hotel.hiber.model.HotelEntity;
+import by.pertsev.hotel.hiber.model.dto.HotelDTOEntity;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
