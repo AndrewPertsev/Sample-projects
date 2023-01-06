@@ -28,13 +28,14 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         UserDto userDto = (UserDto) o;
         Optional<User> loginHolder = userDao.findByLogin(userDto.getLogin());
-        User user = loginHolder.get();
+        //       User user = loginHolder.get();
 
         if (loginHolder.isPresent()) {
             errors.rejectValue("login", String.valueOf(NOT_FOUND_CODE), "User with this login exists");
-        } else if (user != null & user.isNonGrata()) {
-            errors.rejectValue("isNonGrata", String.valueOf(NOT_FOUND_CODE), "User banned");
         }
+//        else if (user != null & user.isNonGrata()) {
+//            errors.rejectValue("isNonGrata", String.valueOf(NOT_FOUND_CODE), "User banned");
+//        }
     }
 
 }

@@ -26,8 +26,8 @@ public class User extends HotelEntity implements Serializable {
     private Integer userId;
 
     @Column(name = USERS_ROLE_ID)
-    private int role;
-
+    @Enumerated(EnumType.ORDINAL)
+    private Role roleId;
     @Column(name = USERS_NAME)
     private String name;
 
@@ -55,7 +55,7 @@ public class User extends HotelEntity implements Serializable {
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", roles=" + role +
+                ", roles=" + roleId +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", login='" + login + '\'' +

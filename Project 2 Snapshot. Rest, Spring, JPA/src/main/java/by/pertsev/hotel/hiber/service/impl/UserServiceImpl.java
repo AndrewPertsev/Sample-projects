@@ -5,6 +5,7 @@ import by.pertsev.hotel.hiber.model.User;
 import by.pertsev.hotel.hiber.model.converter.ConverterDTO;
 import by.pertsev.hotel.hiber.model.dto.UserDto;
 import by.pertsev.hotel.hiber.service.UserServiceable;
+import by.pertsev.hotel.hiber.util.LogMethod;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -36,6 +37,7 @@ public class UserServiceImpl implements UserServiceable {
         return userDao.findAll(pageable);
     }
 
+    @LogMethod
     @Override
     public User findById(int id) {
         return userDao.findById(id);

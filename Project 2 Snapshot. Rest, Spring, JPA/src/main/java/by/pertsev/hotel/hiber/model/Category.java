@@ -2,7 +2,10 @@ package by.pertsev.hotel.hiber.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -20,7 +23,7 @@ public class Category extends HotelEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //  @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = CATEGORY_ROOM_ID)
     private Integer categoryId;
 

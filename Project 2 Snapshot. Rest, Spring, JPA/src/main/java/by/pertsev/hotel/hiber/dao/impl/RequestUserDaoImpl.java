@@ -22,7 +22,6 @@ public class RequestUserDaoImpl implements RequestUserDao {
     private final EntityManager entityManager;
     private final ProxyRequestUserRepository proxyRequestUserRepository;
 
-    @Transactional
     @Override
     public RequestUser save(RequestUser entity) {
         proxyRequestUserRepository.save(entity);

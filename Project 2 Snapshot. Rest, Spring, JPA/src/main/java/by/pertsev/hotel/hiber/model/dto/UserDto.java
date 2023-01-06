@@ -1,9 +1,9 @@
 package by.pertsev.hotel.hiber.model.dto;
 
+import by.pertsev.hotel.hiber.model.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
@@ -19,18 +19,16 @@ import static by.pertsev.hotel.hiber.model.dto.ValidatorConstants.PATTERN_NAME;
 @Builder
 public class UserDto extends HotelDTOEntity {
     private Integer userId;
-    @Range(min = 0, max = 2, message = " should be between 0 and 2 .")
-    private int role;
-    @Pattern(regexp = PATTERN_NAME, message = "Size should be between 2 and 30 characters. ")
 
+    private Role roleId;
+
+    @Pattern(regexp = PATTERN_NAME, message = "Size should be between 2 and 30 characters. ")
     private String name;
 
     @Pattern(regexp = PATTERN_NAME, message = "Size should be between 2 and 30 characters. ")
-
     private String surname;
 
     @Pattern(regexp = PATTERN_NAME, message = "Size should be between 2 and 30 characters. ")
-
     private String login;
 
     @JsonIgnore
@@ -46,6 +44,7 @@ public class UserDto extends HotelDTOEntity {
 
     @Size(min = 2, max = 28, message = "Size should be between 2 and 28 characters. ")
     private String country;
+
     @Pattern(regexp = PATTERN_COMMENT)
     private String comment;
 

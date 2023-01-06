@@ -16,7 +16,7 @@ public class UserConverterDto implements ConverterDTO<UserDto, User> {
 
         return UserDto.builder()
                 .userId(entity.getUserId())
-                .role((entity.getRole()))
+                .roleId((entity.getRoleId()))
                 .name(entity.getName())
                 .surname(entity.getSurname())
                 .login(entity.getLogin())
@@ -33,7 +33,7 @@ public class UserConverterDto implements ConverterDTO<UserDto, User> {
         log.info("Convert DTO To Entity");
         return User.builder()
                 .userId(dto.getUserId())
-                .role(DEFAULT_ROLE_FOR_NEW_USER)
+                .roleId(dto.getRoleId())
                 .name(dto.getName())
                 .surname(dto.getSurname())
                 .login(dto.getLogin())
